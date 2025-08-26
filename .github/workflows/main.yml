@@ -14,8 +14,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # This is critical to ensure the workflow can commit back to the repository
-          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true  # Make sure to clone submodules (the theme)
+          fetch-depth: 0    # Fetch all history for proper git operations
 
       # Step 2: Set up Hugo environment
       - name: Setup Hugo
@@ -24,53 +24,15 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      # Step 3: Initialize the Hugo site
-      - name: Create Hugo site
-        run: |
-          hugo new site . --force
-
-      # Step 4: Configure the theme and content
-      - name: Configure site and add content
-        run: |
-          # Add the theme as a submodule
-          git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-          git config --global user.email "rsignell@gmail.com"
-          git config --global user.name "Rich Signell"
-          git commit -m "Add Ananke theme as submodule"
-          git push origin main
-          
-          # Create hugo.toml configuration
-          echo 'baseURL = "https://rsignell.github.io/my-hugo-remote/"' > hugo.toml
-          echo 'languageCode = "en-us"' >> hugo.toml
-          echo 'title = "My Remote Hugo Site"' >> hugo.toml
-          echo 'theme = "ananke"' >> hugo.toml
-
-          # Create the initial content page
-          mkdir -p content/posts
-          echo '---' > content/posts/welcome.md
-          echo 'title: "Welcome to My Site"' >> content/posts/welcome.md
-          echo 'date: 2023-10-27T10:00:00-04:00' >> content/posts/welcome.md
-          echo 'draft: false' >> content/posts/welcome.md
-          echo '---' >> content/posts/welcome.md
-          echo '' >> content/posts/welcome.md
-          echo 'This entire site was built from a single GitHub Action!' >> content/posts/welcome.md
-          
-          # Add and commit the new files
-          git add .
-          git commit -m "Initial site configuration and content"
-          git push origin main
-          
-      # Step 5: Build the Hugo site
+      # Step 3: Build the Hugo site
       - name: Build Hugo site
         run: hugo --minify
 
-      # Step 6: Deploy the site to GitHub Pages
+      # Step 4: Deploy the site to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          cname: ''
           publish_branch: main
-
-
+          cname: ''
