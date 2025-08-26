@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My Remote Hugo Site</title><link>https://rsignell.github.io/my-hugo-remote/</link><description>Recent content on My Remote Hugo Site</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 27 Oct 2023 10:00:00 -0400</lastBuildDate><atom:link href="https://rsignell.github.io/my-hugo-remote/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Blog Post</title><link>https://rsignell.github.io/my-hugo-remote/posts/my-first-post/</link><pubDate>Fri, 27 Oct 2023 10:00:00 -0400</pubDate><guid>https://rsignell.github.io/my-hugo-remote/posts/my-first-post/</guid><description>&lt;p>Welcome to my new static website! This page was created using &lt;strong>Markdown&lt;/strong> and automatically deployed with &lt;strong>GitHub Actions&lt;/strong>.&lt;/p>
+&lt;p>This is the content of my first post. It&amp;rsquo;s a great way to publish articles and stories quickly. You can use standard Markdown syntax like:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Bold&lt;/strong> and &lt;em>Italic&lt;/em> text.&lt;/li>
+&lt;li>Lists.&lt;/li>
+&lt;li>&lt;a href="https://gohugo.io/">Links&lt;/a>.&lt;/li>
+&lt;li>Images.&lt;/li>
+&lt;/ul>
+&lt;p>Feel free to edit this file and add more content!&lt;/p></description></item></channel></rss>
