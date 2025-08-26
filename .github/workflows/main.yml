@@ -38,7 +38,7 @@ jobs:
           git push origin main
           
           # Create hugo.toml configuration
-          echo 'baseURL = "https://your-username.github.io/my-hugo-remote/"' > hugo.toml
+          echo 'baseURL = "https://rsignell.github.io/my-hugo-remote/"' > hugo.toml
           echo 'languageCode = "en-us"' >> hugo.toml
           echo 'title = "My Remote Hugo Site"' >> hugo.toml
           echo 'theme = "ananke"' >> hugo.toml
